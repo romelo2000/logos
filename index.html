@@ -280,6 +280,112 @@
         }
         footer a { color: var(--accent); text-decoration: none; }
 
+        /* ─── Examples ─── */
+        .examples-wrap {
+            display: flex; flex-direction: column; gap: 24px;
+            max-width: 760px; margin: 0 auto;
+        }
+        .example-block {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+        .example-user, .example-logos {
+            padding: 20px 24px;
+        }
+        .example-user {
+            border-bottom: 1px solid var(--border);
+        }
+        .example-label {
+            font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px;
+            color: var(--text-muted); margin-bottom: 8px;
+        }
+        .accent-label { color: var(--accent) !important; }
+        .example-text {
+            font-size: 16px; color: var(--text-primary); line-height: 1.6;
+        }
+        .example-logos .example-text {
+            color: var(--accent); font-style: italic;
+        }
+
+        /* ─── Compare ─── */
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px; max-width: 700px; margin: 0 auto;
+        }
+        .compare-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px;
+        }
+        .compare-logos {
+            border-color: rgba(201,168,76,0.3);
+        }
+        .compare-title {
+            font-size: 18px; font-weight: 700;
+            margin-bottom: 20px; color: var(--text-secondary);
+        }
+        .compare-row {
+            font-size: 15px; color: var(--text-secondary);
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            line-height: 1.4;
+        }
+        .compare-row:last-child { border-bottom: none; }
+        .compare-logos .compare-row { color: var(--text-primary); }
+
+        /* ─── For whom ─── */
+        .forwho-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        .forwho-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .forwho-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+        .forwho-icon { font-size: 28px; margin-bottom: 12px; }
+        .forwho-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.5; }
+
+        /* ─── Hood intro ─── */
+        .hood-intro {
+            max-width: 700px; margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px 32px;
+            font-size: 16px; line-height: 1.7;
+            color: var(--text-primary);
+        }
+
+        /* ─── Layers ─── */
+        .layers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .layer-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px 24px;
+            transition: border-color 0.2s;
+        }
+        .layer-card:hover { border-color: var(--border-hover); }
+        .layer-title {
+            font-size: 15px; font-weight: 700; color: var(--accent);
+            margin-bottom: 8px; letter-spacing: 0.5px;
+        }
+        .layer-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
         /* ─── Responsive ─── */
         @media (max-width: 768px) {
             .hero { grid-template-columns: 1fr; text-align: center; }
@@ -288,6 +394,7 @@
             .hero-orb-text { font-size: 36px; }
             .hero-cta { justify-content: center; }
             .nav-links { display: none; }
+            .compare-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -298,11 +405,10 @@
     <div class="nav-inner">
         <div class="nav-logo">LOGOS</div>
         <div class="nav-links">
-            <a href="#features">Возможности</a>
-            <a href="#architecture">Архитектура</a>
-            <a href="#how">Как работает</a>
+            <a href="#what">Что это</a>
+            <a href="#example">Примеры</a>
+            <a href="#features">Устройство</a>
             <a href="#download" class="nav-cta">Скачать</a>
-            <a href="https://github.com/romelo2000/logos/releases/download/v27.0.0/LOGOS_V27_Opisanie.pdf" target="_blank">Мануал</a>
         </div>
     </div>
 </nav>
@@ -310,18 +416,17 @@
 <!-- ─── Hero ─── -->
 <div class="hero">
     <div class="hero-text">
-        <h1>AI <span class="highlight">Reality Engine</span><br>на вашем Mac</h1>
-        <p>LOGOS — не чат-бот и не ассистент. Это среда, которая реагирует на возмущение. Пять живых сил, 38 метрик, 20 рефлексов — поведение возникает из состояния, а не из инструкций. Полностью локально.</p>
+        <h1>Ты думаешь,<br>что <span class="highlight">думаешь сам.</span></h1>
+        <p>LOGOS показывает, что происходит на самом деле.<br>Пишешь мысль — получаешь не ответ, а отражение.<br>Не текст. Состояние, в котором твоя мысль стала видимой.</p>
         <div class="hero-badges">
             <div class="badge"><strong>100%</strong> локально</div>
             <div class="badge"><strong>0</strong> облака</div>
-            <div class="badge"><strong>38</strong> метрик</div>
-            <div class="badge"><strong>20</strong> рефлексов</div>
             <div class="badge">macOS <strong>Apple Silicon</strong></div>
+            <div class="badge">10 дней <strong>бесплатно</strong></div>
         </div>
         <div class="hero-cta">
             <a href="#download" class="btn-primary">Скачать для Mac</a>
-            <a href="#how" class="btn-secondary">Как это работает</a>
+            <a href="#what" class="btn-secondary">Как это работает</a>
         </div>
     </div>
     <div class="hero-visual">
@@ -331,58 +436,150 @@
     </div>
 </div>
 
-<!-- ─── Privacy ─── -->
-<section style="padding-top: 20px;">
-    <div class="privacy-banner">
-        <div class="privacy-icon">🔒</div>
-        <h3>Никаких облаков. Никаких подписок. Никакой слежки.</h3>
-        <p>LOGOS работает целиком на вашем Mac через Ollama. Ваши данные никогда не покидают компьютер. Мастер установки при первом запуске сам скачает Ollama и все нужные модели (Qwen 2.5 и Qwen 3). Ничего настраивать вручную не нужно.</p>
-    </div>
-</section>
-
-<!-- ─── Features ─── -->
-<section id="features">
-    <h2 class="section-title">Что умеет <span class="accent">LOGOS</span></h2>
-    <p class="section-subtitle">Среда, которая реагирует на возмущение — не на слова</p>
+<!-- ─── What it gives ─── -->
+<section id="what">
+    <h2 class="section-title">Что это <span class="accent">даёт</span></h2>
+    <p class="section-subtitle">LOGOS не помогает найти ответ. Он показывает, почему ты его не видишь.</p>
     <div class="features-grid">
         <div class="feature-card">
-            <div class="feature-icon">🧭</div>
-            <h3>5 живых сил</h3>
-            <p>Reflection, Structure, Contradiction, Clarity, Disruption. Силы живут в диапазоне 0–1 с инерцией и гистерезисом. Из их конфигурации поведение возникает само — без явных инструкций.</p>
+            <div class="feature-icon">🪞</div>
+            <h3>Замечаешь, где врёшь себе</h3>
+            <p>Система не соглашается по умолчанию. Рефлекс против комфортной ловушки встроен: если ты застрял в одном и том же — LOGOS это увидит, накопит и возмутит.</p>
         </div>
         <div class="feature-card">
-            <div class="feature-icon">📊</div>
-            <h3>38 числовых метрик</h3>
-            <p>Пять слоёв: базовые (tension, stability), мета-когнитивные (causal, counterfactual), кармические, бионовские и буддийские. LLM получает числа — поведение эмерджирует.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🔄</div>
-            <h3>20 рефлексов</h3>
-            <p>Базовые, кармические (ВОЗВРАТ, РАСПЛАТА, СЕМЯ, ОЧИЩЕНИЕ), бионовские (КОНТЕЙНЕР, СВЯЗЬ) и буддийские (ОТПУСКАНИЕ, СРЕДИННЫЙ ПУТЬ). Срабатывают автоматически по числам состояния.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">⚓</div>
-            <h3>9 якорей ответов</h3>
-            <p>ОТРАЖЕНИЕ, НАПРЯЖЕНИЕ, ОПОРА, СДВИГ, ОТКРЫТИЕ, КАРМА, КОНТЕЙНЕР, СВЯЗЬ, ОТПУСКАНИЕ. Возникают из активных сил — не из шаблона.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🧠</div>
-            <h3>Самообучение и экспорт</h3>
-            <p>LOGOS вычисляет причинные корреляции сил с исходами. Строит профиль пользователя. Полный экспорт сессии в JSON для последующего исследования — из настроек.</p>
+            <div class="feature-icon">🎯</div>
+            <h3>Понимаешь, чего хочешь на самом деле</h3>
+            <p>Не что ты говоришь, что хочешь. Система читает паттерн поведения за словами и возвращает структуру, которую ты не назвал.</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">⚡</div>
-            <h3>Три режима (Kahneman)</h3>
-            <p>Fast (Qwen 2.5 7B) — System 1, быстрое мышление. Deep (Qwen 3 30B) — System 2, медленный анализ. Critical — максимальная аналитическая плотность при хаосе.</p>
+            <h3>Выходишь из тупика быстрее</h3>
+            <p>Тупик — это не отсутствие вариантов. Это фиксация на одном угле. LOGOS предлагает 2–3 расходящихся траектории из текущего состояния. Не советы — пути.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">�</div>
+            <h3>Решаешь без внутреннего шума</h3>
+            <p>Система удерживает противоречие живым. Там, где обычный AI скажет «с одной стороны / с другой» и свернёт к выводу — LOGOS оставит напряжение, потому что оно продуктивно.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">�</div>
+            <h3>Видишь мысли со стороны</h3>
+            <p>Каждый ответ — не текст, а проекция числового состояния системы после контакта с твоей мыслью. Ты видишь не интерпретацию. Ты видишь отражение.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">�</div>
+            <h3>Только твоё. Навсегда.</h3>
+            <p>Работает полностью на твоём Mac через Ollama. Никакого облака, никакой телеметрии. Твои мысли не покидают компьютер. Мастер установки при первом запуске всё сделает сам.</p>
         </div>
     </div>
 </section>
 
-<!-- ─── Architecture ─── -->
-<section id="architecture">
-    <h2 class="section-title">Архитектура <span class="accent">системы</span></h2>
-    <p class="section-subtitle">Числа, не текст. Состояние, не инструкции. 6 дисциплин в коде.</p>
-    <div class="metrics-grid">
+<!-- ─── Example ─── -->
+<section id="example">
+    <h2 class="section-title">Как это <span class="accent">выглядит</span></h2>
+    <p class="section-subtitle">Иногда неприятно. Почти всегда — точно.</p>
+    <div class="examples-wrap">
+        <div class="example-block">
+            <div class="example-user">
+                <div class="example-label">Ты</div>
+                <div class="example-text">Я не понимаю, что делать дальше.</div>
+            </div>
+            <div class="example-logos">
+                <div class="example-label accent-label">LOGOS</div>
+                <div class="example-text">Ты не хочешь выбирать.<br>Ты хочешь, чтобы выбор исчез.</div>
+            </div>
+        </div>
+        <div class="example-block">
+            <div class="example-user">
+                <div class="example-label">Ты</div>
+                <div class="example-text">Я хочу развиваться, но ничего не делаю.</div>
+            </div>
+            <div class="example-logos">
+                <div class="example-label accent-label">LOGOS</div>
+                <div class="example-text">Ты не боишься неудачи.<br>Ты боишься, что получится не то, что ты хочешь.</div>
+            </div>
+        </div>
+        <div class="example-block">
+            <div class="example-user">
+                <div class="example-label">Ты</div>
+                <div class="example-text">Опять та же ситуация. Третий раз подряд.</div>
+            </div>
+            <div class="example-logos">
+                <div class="example-label accent-label">LOGOS</div>
+                <div class="example-text">Паттерн не в ситуации.<br>Паттерн в том, что ты выбираешь именно её.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── Not ChatGPT ─── -->
+<section>
+    <h2 class="section-title">Это не <span class="accent">ChatGPT</span></h2>
+    <p class="section-subtitle">Разница не в качестве. Разница в природе.</p>
+    <div class="compare-grid">
+        <div class="compare-card compare-other">
+            <div class="compare-title">ChatGPT</div>
+            <div class="compare-row">Отвечает на вопросы</div>
+            <div class="compare-row">Даёт варианты</div>
+            <div class="compare-row">Соглашается и помогает</div>
+            <div class="compare-row">Инструмент</div>
+            <div class="compare-row">Облако. Твои данные — там</div>
+        </div>
+        <div class="compare-card compare-logos">
+            <div class="compare-title" style="color:var(--accent)">LOGOS</div>
+            <div class="compare-row">Отражает состояние</div>
+            <div class="compare-row">Показывает, что стоит за выбором</div>
+            <div class="compare-row">Возмущает комфортную ловушку</div>
+            <div class="compare-row">Зеркало</div>
+            <div class="compare-row">Только на твоём Mac. Локально.</div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── For whom ─── -->
+<section>
+    <h2 class="section-title">Когда это <span class="accent">нужно</span></h2>
+    <p class="section-subtitle">Не нужно понимать, как работает. Нужно почувствовать.</p>
+    <div class="forwho-grid">
+        <div class="forwho-card">
+            <div class="forwho-icon">🌀</div>
+            <p>Застрял и не понимаешь почему</p>
+        </div>
+        <div class="forwho-card">
+            <div class="forwho-icon">🌫</div>
+            <p>Много мыслей, но нет ясности</p>
+        </div>
+        <div class="forwho-card">
+            <div class="forwho-icon">⚖️</div>
+            <p>Нужно принять решение без шума</p>
+        </div>
+        <div class="forwho-card">
+            <div class="forwho-icon">🔁</div>
+            <p>Одна и та же ситуация по кругу</p>
+        </div>
+        <div class="forwho-card">
+            <div class="forwho-icon">🧠</div>
+            <p>Чувствуешь, что сам себе мешаешь</p>
+        </div>
+        <div class="forwho-card">
+            <div class="forwho-icon">🔬</div>
+            <p>Хочешь понять, как устроено мышление</p>
+        </div>
+    </div>
+</section>
+
+<!-- ─── Features / Under the hood ─── -->
+<section id="features">
+    <h2 class="section-title">Что <span class="accent">под капотом</span></h2>
+    <p class="section-subtitle">Для тех, кому важно понять механику</p>
+
+    <div class="hood-intro">
+        <p>Большинство AI-систем работают через инструкции: скажи модели что делать — она сделает.<br>
+        LOGOS работает через <strong>состояние</strong>: измени числа — изменится всё остальное само.</p>
+        <p style="margin-top:12px; color:var(--text-muted);">5 живых сил (Reflection, Structure, Contradiction, Clarity, Disruption) — числа от 0 до 1 с инерцией и гистерезисом. Из их конфигурации поведение возникает само, без явных инструкций. LLM получает не текст — она получает числа и рождает из них ответ.</p>
+    </div>
+
+    <div class="metrics-grid" style="margin-top: 32px;">
         <div class="metric-card">
             <div class="metric-number">38</div>
             <div class="metric-label">Метрик</div>
@@ -400,79 +597,62 @@
             <div class="metric-label">Якорей</div>
         </div>
         <div class="metric-card">
-            <div class="metric-number">3</div>
-            <div class="metric-label">Режима</div>
+            <div class="metric-number">7</div>
+            <div class="metric-label">Архетипов</div>
         </div>
         <div class="metric-card">
             <div class="metric-number">0</div>
             <div class="metric-label">Облака</div>
         </div>
     </div>
-</section>
 
-<!-- ─── Anchors ─── -->
-<section>
-    <h2 class="section-title">Девять <span class="accent">якорей</span></h2>
-    <p class="section-subtitle">Структура ответа возникает из состояния, не навязывается</p>
-    <div class="anchors-grid">
-        <div class="anchor-card">
-            <div class="anchor-name">ОТРАЖЕНИЕ</div>
-            <div class="anchor-desc">Смысл за словами. Не парафраз — реальное отражение.</div>
+    <div class="layers-grid" style="margin-top: 32px;">
+        <div class="layer-card">
+            <div class="layer-title">Лакан</div>
+            <div class="layer-desc">Структура. Real, Symbolic, Imaginary — три порядка каждого состояния. Система знает, из какого порядка говорит.</div>
         </div>
-        <div class="anchor-card">
-            <div class="anchor-name">НАПРЯЖЕНИЕ</div>
-            <div class="anchor-desc">Конфликт живой. Парадокс допустим. Не сглаживать.</div>
+        <div class="layer-card">
+            <div class="layer-title">Бион</div>
+            <div class="layer-desc">Процесс. Alpha-function, container/contained, attacks on linking. Система перерабатывает сырой опыт, а не просто отвечает.</div>
         </div>
-        <div class="anchor-card">
-            <div class="anchor-name">ОПОРА</div>
-            <div class="anchor-desc">Где устойчивость. Логическая непрерывность.</div>
+        <div class="layer-card">
+            <div class="layer-title">Карма</div>
+            <div class="layer-desc">История. Паттерны повторений, накопленная инерция, незавершённые циклы. Система видит, что происходит снова.</div>
         </div>
-        <div class="anchor-card">
-            <div class="anchor-name">СДВИГ</div>
-            <div class="anchor-desc">Переформирование. Сжатие до сути.</div>
+        <div class="layer-card">
+            <div class="layer-title">Буддизм</div>
+            <div class="layer-desc">Онтология. Anatta (нет фиксированного «я»), anicca (всё меняется), shunyata (силы пусты без друг друга). Система не цепляется.</div>
         </div>
-        <div class="anchor-card">
-            <div class="anchor-name">ОТКРЫТИЕ</div>
-            <div class="anchor-desc">2–3 расходящихся траектории из состояния. Не советы.</div>
+        <div class="layer-card">
+            <div class="layer-title">Трансерфинг</div>
+            <div class="layer-desc">Намерение. Importance, pendulum, intention — как числа. Система замечает, когда важность становится избыточной.</div>
         </div>
-        <div class="anchor-card">
-            <div class="anchor-name">КАРМА</div>
-            <div class="anchor-desc">При повторении паттерна. Что за узел, что завершает.</div>
-        </div>
-        <div class="anchor-card">
-            <div class="anchor-name">КОНТЕЙНЕР</div>
-            <div class="anchor-desc">Бион: содержать сырой опыт. Не интерпретировать.</div>
-        </div>
-        <div class="anchor-card">
-            <div class="anchor-name">СВЯЗЬ</div>
-            <div class="anchor-desc">Бион: восстановить разрывы между мыслями.</div>
-        </div>
-        <div class="anchor-card">
-            <div class="anchor-name">ОТПУСКАНИЕ</div>
-            <div class="anchor-desc">Будд.: система держится. Ослабить хватку. Без усилия.</div>
+        <div class="layer-card">
+            <div class="layer-title">Kahneman</div>
+            <div class="layer-desc">Режимы. Fast = System 1 (Qwen 2.5 7B). Deep = System 2 (Qwen 3 30B). Critical = максимальная плотность при хаосе.</div>
         </div>
     </div>
 </section>
 
-<!-- ─── How it works ─── -->
+<!-- ─── How to install ─── -->
 <section id="how">
-    <h2 class="section-title">Как <span class="accent">установить</span></h2>
-    <p class="section-subtitle">Три шага до полного запуска</p>
+    <h2 class="section-title">Как <span class="accent">запустить</span></h2>
+    <p class="section-subtitle">Три шага. Настраивать ничего не нужно.</p>
     <div class="steps">
         <div class="step-card">
             <div class="step-number">1</div>
             <h3>Скачайте DMG</h3>
-            <p>Скачайте LOGOS V28 для Mac (Apple Silicon). Откройте DMG, перетащите LOGOS в Applications.</p>
+            <p>LOGOS V28 для Mac (Apple Silicon). Откройте DMG, перетащите в Applications.</p>
         </div>
         <div class="step-card">
             <div class="step-number">2</div>
-            <h3>Мастер установки</h3>
-            <p>При первом запуске встроенный визард автоматически установит Ollama и скачает все нужные модели (~23 GB). Настраивать вручную ничего не нужно.</p>
+            <h3>Запустите</h3>
+            <p>Встроенный мастер установки автоматически поставит Ollama и скачает все модели (~23 GB). Больше ничего делать не нужно.</p>
         </div>
         <div class="step-card">
             <div class="step-number">3</div>
-            <h3>10 дней триал</h3>
-            <p>Полный доступ без ограничений на 10 дней. После — активация по ключу (привязка к вашему Mac).</p>
+            <h3>10 дней — бесплатно</h3>
+            <p>Полный доступ без ограничений. После — активация по ключу, привязанному к вашему Mac.</p>
         </div>
     </div>
 </section>
@@ -481,15 +661,15 @@
 <section id="download" class="download-section">
     <div class="download-card">
         <h2>Скачать <span style="color:var(--accent)">LOGOS V28</span></h2>
-        <p>DMG для macOS Apple Silicon (arm64) · Мастер установки встроен</p>
+        <p>Напиши любую мысль.<br>Посмотри, что за ней стоит.</p>
         <div class="download-reqs">
             <div class="req-item"><strong>macOS</strong> 12+</div>
             <div class="req-item"><strong>RAM</strong> 16 GB+</div>
             <div class="req-item"><strong>Диск</strong> 25 GB</div>
             <div class="req-item"><strong>Интернет</strong> для установки</div>
         </div>
-        <a href="https://github.com/romelo2000/logos/releases/latest" class="btn-primary" style="font-size: 19px; padding: 16px 40px;">⬇ Скачать DMG</a>
-        <p style="margin-top: 20px; font-size: 13px; color: var(--text-muted);">После скачивания: открыть DMG → перетащить LOGOS в Applications → запустить. Мастер установки сделает остальное.</p>
+        <a href="https://github.com/romelo2000/logos/releases/latest" class="btn-primary" style="font-size: 19px; padding: 16px 40px;">⬇ Скачать для Mac</a>
+        <p style="margin-top: 20px; font-size: 13px; color: var(--text-muted);">Открыть DMG → перетащить LOGOS в Applications → запустить. Мастер сделает остальное.</p>
     </div>
 </section>
 
